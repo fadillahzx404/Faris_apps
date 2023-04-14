@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1098142687172",
+    "firebase_url": "https://faris-apps-2440e-default-rtdb.firebaseio.com",
+    "project_id": "faris-apps-2440e",
+    "storage_bucket": "faris-apps-2440e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1098142687172:android:00434fb2424bdde93a0e91",
+        "android_client_info": {
+          "package_name": "com.example.faris_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1098142687172-aplid3nod1qcvhr0aa5n4o7s6n6gsfsb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWBloqxpxvy7-c6QUuRT_jcbcg_Li5A-E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1098142687172-aplid3nod1qcvhr0aa5n4o7s6n6gsfsb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
