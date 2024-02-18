@@ -96,7 +96,11 @@ class TotalGaji extends StatelessWidget {
                       
                       padding: const EdgeInsets.symmetric(horizontal: 24),
                       child: Align(alignment: Alignment.centerRight,
-                        child: RaisedButton(onPressed: (){},child: Text('Bagikan Gaji'),color: P100,)),
+                          child: TextButton(
+                            onPressed: () {},
+                            child: Text('Bagikan Gaji'),
+                            style: TextButton.styleFrom(backgroundColor: P100),
+                          )),
                     ),
                     SizedBox(
                       height: 20,

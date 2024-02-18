@@ -1,10 +1,10 @@
 import 'dart:async';
 
-import 'package:faris_app/pages/admin/home_admin.dart';
+import 'package:faris_app/pages/login.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
-import 'package:page_transition/page_transition.dart';
+
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -20,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
         () => Navigator.pushReplacement(
             context,
             PageRouteBuilder(
-              pageBuilder: (context, animation1, animation2) => HomeAdmin(),
+              pageBuilder: (context, animation1, animation2) => Login(),
               transitionDuration: Duration(seconds: 2),
               reverseTransitionDuration: Duration(seconds: 2),
             )));

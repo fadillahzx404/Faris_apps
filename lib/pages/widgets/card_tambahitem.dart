@@ -95,10 +95,7 @@ class CardTambahItem extends StatelessWidget {
                               fontWeight: FontWeight.w600),
                         ),
                         Spacer(),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 12.0),
-                          child: Image.asset('assets/images/arrow_right.png'),
-                        ),
+                        Image.asset('assets/images/arrow_right.png'),
                       ],
                     ),
                   ),

@@ -1,23 +1,26 @@
+import 'dart:convert';
+
 import 'package:faris_app/model/users.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:supabase/supabase.dart';
+import 'package:http/http.dart' as http;
 
 class UsersProvider extends ChangeNotifier {
-  Future getRecomendedUsers() async {
-    final client = SupabaseClient('https://vjtbjgvwzvkkewxcqmnk.supabase.co',
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZqdGJqZ3Z3enZra2V3eGNxbW5rIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY2MjYyNDE1MCwiZXhwIjoxOTc4MjAwMTUwfQ.Z02yTaaDcd2bYCS2ZPY9SbqE2eiLn2qeShFs03knWuk');
-    final res = await client.from('users').select().execute();
+  Future<List<Users>> getRecomendedUsers() async {
+    try {
+      var result = await http.get(
+        Uri.parse('https://6314c5e6fa82b738f74de9b0.mockapi.io/users'),
+      );
 
-    print(res.status);
-    print(res.data);
+      if (result.statusCode == 200) {
+        List data = jsonDecode(result.body);
+        List<Users> users = data.map((item) => Users.fromJson(item)).toList();
 
-    if (res.status == 200) {
-      List datas = res.data;
-      List<Users> users = datas.map((e) => Users.fromJson(e)).toList();
-
-      return users;
-    } else {
-      return <Users>[];
+        notifyListeners();
+        return users;
+      }
+    } catch (e) {
+      print('Error: $e');
     }
+    return <Users>[];
   }
 }

@@ -1,13 +1,13 @@
+import 'package:faris_app/pages/penjahit/home_penjahit.dart';
 import 'package:faris_app/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class NavbarSlipGaji extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 312,
-      height: 66,
+      width: MediaQuery.of(context).size.width - (2 * 24),
+      height: 70,
       decoration: BoxDecoration(
         color: A100,
         borderRadius: BorderRadius.circular(8),
@@ -63,7 +63,11 @@ class NavbarSlipGaji extends StatelessWidget {
             Material(
               borderRadius: BorderRadius.circular(8),
               child: InkWell(
-                onTap: () {},
+                onTap: () => Navigator.pushReplacement(
+                    context,
+                    PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) =>
+                            HomePenjahit())),
                 borderRadius: BorderRadius.circular(8),
                 child: Padding(
                   padding: const EdgeInsets.only(left: 4.0, right: 4, top: 4),

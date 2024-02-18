@@ -1,14 +1,15 @@
 import 'package:faris_app/pages/widgets/buttonback.dart';
 import 'package:faris_app/pages/widgets/card_total_gaji.dart';
-import 'package:faris_app/pages/widgets/navbar_slip_gaji_admin.dart';
+import 'package:faris_app/providers/users_providers.dart';
 import 'package:faris_app/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:faris_app/providers/users_providers.dart';
 import 'package:provider/provider.dart';
 
 import '../../model/users.dart';
 
 class TotalGajiPenjahit extends StatelessWidget {
+  const TotalGajiPenjahit({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     var userProvider = Provider.of<UsersProvider>(context);
@@ -95,7 +96,7 @@ class TotalGajiPenjahit extends StatelessWidget {
               child: SingleChildScrollView(
                 child: Padding(
                   padding: const EdgeInsets.only(
-                    bottom: 110,
+                    bottom: 50,
                   ),
                   child: FutureBuilder(
                     future: userProvider.getRecomendedUsers(),
@@ -155,27 +156,7 @@ class TotalGajiPenjahit extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: Container(
-        height: 70,
-        width: MediaQuery.of(context).size.width - (2 * 24),
-        decoration: BoxDecoration(
-          color: A100,
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: A400, width: 0.80),
-          boxShadow: <BoxShadow>[
-            BoxShadow(
-              color: A400,
-              blurRadius: 2.0,
-              offset: Offset(
-                0.0,
-                1.0,
-              ),
-            )
-          ],
-        ),
-        child: NavbarSlipGajiAdmin(),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      
     );
   }
 }

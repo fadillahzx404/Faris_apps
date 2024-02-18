@@ -1,15 +1,15 @@
 import 'package:faris_app/model/users.dart';
-
 import 'package:faris_app/pages/widgets/buttonback.dart';
 import 'package:faris_app/pages/widgets/card_edit_user.dart';
+import 'package:faris_app/providers/users_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:faris_app/providers/users_providers.dart';
 
 import '../../theme.dart';
-import '../widgets/navbar_edit_user.dart';
 
 class EditUser extends StatelessWidget {
+  const EditUser({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     var userProvider = Provider.of<UsersProvider>(context);
@@ -31,7 +31,7 @@ class EditUser extends StatelessWidget {
                 child: ButtonBack(TextButtonBack: 'Edit User'),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 24,
             ),
             Container(
@@ -55,7 +55,7 @@ class EditUser extends StatelessWidget {
                             'Edit User Penjahit,',
                             style: headlines6,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 16,
                           ),
                           Text(
@@ -67,13 +67,13 @@ class EditUser extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Image.asset('assets/images/banner_edit_user.png'),
                   ],
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 22,
             ),
             Padding(
@@ -85,11 +85,11 @@ class EditUser extends StatelessWidget {
                 children: [
                   IconButton(
                     onPressed: () {},
-                    icon: Icon(Icons.search),
+                    icon: const Icon(Icons.search),
                   ),
                   IconButton(
                     onPressed: () {},
-                    icon: Icon(Icons.filter_list),
+                    icon: const Icon(Icons.filter_list),
                   ),
                 ],
               ),
@@ -97,7 +97,7 @@ class EditUser extends StatelessWidget {
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.only(
-                    left: 24, right: 24, top: 16, bottom: 110),
+                    left: 24, right: 24, top: 16, bottom: 50),
                 child: SingleChildScrollView(
                   child: FutureBuilder(
                     future: userProvider.getRecomendedUsers(),
@@ -105,6 +105,7 @@ class EditUser extends StatelessWidget {
                       if (snapshot.hasData) {
                         var data = (snapshot.data as List<Users>);
 
+                        // ignore: unused_local_variable
                         int index = 0;
 
                         return Wrap(
@@ -150,27 +151,7 @@ class EditUser extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: Container(
-        height: 70,
-        width: MediaQuery.of(context).size.width - (2 * 24),
-        decoration: BoxDecoration(
-          color: A100,
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: A400, width: 0.80),
-          boxShadow: <BoxShadow>[
-            BoxShadow(
-              color: A400,
-              blurRadius: 2.0,
-              offset: Offset(
-                0.0,
-                1.0,
-              ),
-            )
-          ],
-        ),
-        child: NavbarEditUserAdmin(),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+
     );
   }
 }

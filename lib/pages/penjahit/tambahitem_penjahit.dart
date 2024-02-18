@@ -3,8 +3,8 @@ import 'package:faris_app/pages/widgets/card_tambahitem.dart';
 import 'package:faris_app/pages/widgets/navbarslipgaji.dart';
 import 'package:faris_app/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:intl/intl.dart';
 
 class TambahItemPenjahit extends StatefulWidget {
   @override

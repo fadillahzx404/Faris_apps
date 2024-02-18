@@ -9,13 +9,13 @@ import 'dart:async';
 
 class EditUser2 extends StatefulWidget {
   final Users users;
-  EditUser2(this.users);
+  const EditUser2(this.users, {Key? key}) : super(key: key);
   @override
   State<EditUser2> createState() => _EditUser2State();
 }
 
 class _EditUser2State extends State<EditUser2> {
-  final GlobalKey<ExpansionTileCardState> cardRole = new GlobalKey();
+  final GlobalKey<ExpansionTileCardState> cardRole = GlobalKey();
   var isExpanded = true;
 
   @override
@@ -61,7 +61,7 @@ class _EditUser2State extends State<EditUser2> {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 32,
             ),
             Padding(
@@ -86,7 +86,7 @@ class _EditUser2State extends State<EditUser2> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 32,
             ),
             Padding(
@@ -98,7 +98,7 @@ class _EditUser2State extends State<EditUser2> {
                     height: 32,
                     width: 78,
                     decoration: BoxDecoration(
-                      gradient: LinearGradient(
+                      gradient: const LinearGradient(
                           begin: Alignment.bottomRight,
                           end: Alignment.topLeft,
                           colors: <Color>[
@@ -110,7 +110,7 @@ class _EditUser2State extends State<EditUser2> {
                         BoxShadow(
                           color: A400,
                           blurRadius: 4.0,
-                          offset: Offset(
+                          offset: const Offset(
                             0.0,
                             4,
                           ),
@@ -127,14 +127,14 @@ class _EditUser2State extends State<EditUser2> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 16,
                   ),
                   Container(
                     height: 32,
                     width: 78,
                     decoration: BoxDecoration(
-                      gradient: LinearGradient(
+                      gradient: const LinearGradient(
                           begin: Alignment.bottomLeft,
                           end: Alignment.topRight,
                           colors: <Color>[
@@ -146,7 +146,7 @@ class _EditUser2State extends State<EditUser2> {
                         BoxShadow(
                           color: A400,
                           blurRadius: 4.0,
-                          offset: Offset(
+                          offset: const Offset(
                             0.0,
                             4,
                           ),
@@ -170,12 +170,12 @@ class _EditUser2State extends State<EditUser2> {
                                         ),
                                         child: Column(
                                           children: [
-                                            SizedBox(
+                                            const SizedBox(
                                               height: 48,
                                             ),
                                             Image.asset(
                                                 'assets/images/iconmenu/icon_notif.png'),
-                                            SizedBox(
+                                            const SizedBox(
                                               height: 32,
                                             ),
                                             Text(

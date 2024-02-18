@@ -1,6 +1,5 @@
 import 'package:faris_app/pages/widgets/buttonback.dart';
 import 'package:faris_app/pages/widgets/card_edit_item_penjahit.dart';
-
 import 'package:faris_app/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -9,6 +8,8 @@ import '../../model/users.dart';
 import '../../providers/users_providers.dart';
 
 class EditItemPenjahit extends StatelessWidget {
+  const EditItemPenjahit({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     var userProvider = Provider.of<UsersProvider>(context);
@@ -80,11 +81,11 @@ class EditItemPenjahit extends StatelessWidget {
                 children: [
                   IconButton(
                     onPressed: () {},
-                    icon: Icon(Icons.search),
+                    icon: const Icon(Icons.search),
                   ),
                   IconButton(
                     onPressed: () {},
-                    icon: Icon(Icons.filter_list),
+                    icon: const Icon(Icons.filter_list),
                   ),
                 ],
               ),
@@ -97,10 +98,12 @@ class EditItemPenjahit extends StatelessWidget {
                   ),
                   child: FutureBuilder(
                     future: userProvider.getRecomendedUsers(),
-                    builder: (context, snapshot) {
+                    builder: (BuildContext context, AsyncSnapshot snapshot) {
+                      
                       if (snapshot.hasData) {
                         var data = (snapshot.data as List<Users>);
-
+                        
+                        // ignore: unused_local_variable
                         int index = 0;
 
                         return Wrap(

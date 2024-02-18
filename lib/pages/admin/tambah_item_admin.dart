@@ -1,12 +1,13 @@
 import 'package:faris_app/pages/widgets/buttonback.dart';
 import 'package:faris_app/pages/widgets/card_tambahitem.dart';
-import 'package:faris_app/pages/widgets/navbarslipgaji.dart';
 import 'package:faris_app/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 class TambahItemAdmin extends StatefulWidget {
+  const TambahItemAdmin({Key? key}) : super(key: key);
+
   @override
   State<TambahItemAdmin> createState() => _TambahItemAdminState();
 }
@@ -20,6 +21,7 @@ class _TambahItemAdminState extends State<TambahItemAdmin> {
     initializeDateFormatting();
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
@@ -40,11 +42,11 @@ class _TambahItemAdminState extends State<TambahItemAdmin> {
                       child: ButtonBack(
                           TextButtonBack: 'Tambah item yang dijahit')),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 36,
                 ),
                 BanerDay(),
-                SizedBox(
+                const SizedBox(
                   height: 54,
                 )
               ],
@@ -72,8 +74,9 @@ class _TambahItemAdminState extends State<TambahItemAdmin> {
     );
   }
 
+  // ignore: non_constant_identifier_names
   Widget BanerDay() {
-    var now = new DateTime.now();
+    var now = DateTime.now();
     int week = now.weekday;
 
     return Container(
@@ -104,9 +107,9 @@ class _TambahItemAdminState extends State<TambahItemAdmin> {
                 ],
               ),
             ),
-            Spacer(),
+            const Spacer(),
             Image.asset('assets/images/line1.png'),
-            Spacer(),
+            const Spacer(),
             Padding(
               padding: const EdgeInsets.only(
                 top: 38,

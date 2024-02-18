@@ -1,18 +1,17 @@
 import 'package:faris_app/pages/admin/edit_item_penjahit.dart';
 import 'package:faris_app/pages/admin/edit_user.dart';
-
-import 'package:faris_app/pages/admin/total_gaji_penjahit.dart';
 import 'package:faris_app/pages/admin/tambah_user.dart';
-
+import 'package:faris_app/pages/admin/total_gaji_penjahit.dart';
 import 'package:faris_app/pages/widgets/card_menu.dart';
-
 import 'package:faris_app/pages/widgets/navabar_beranda_admin.dart';
-
+import 'package:faris_app/providers/users_providers.dart';
 import 'package:faris_app/theme.dart';
-
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HomeAdmin extends StatefulWidget {
+  const HomeAdmin({Key? key}) : super(key: key);
+
   @override
   State<HomeAdmin> createState() => _HomeAdminState();
 }
@@ -24,49 +23,52 @@ class _HomeAdminState extends State<HomeAdmin> {
   @override
   Widget build(BuildContext context) {
     Widget header() {
-      return Container(
-        height: 250,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: <Color>[
-                Color(0xffE6F8D0),
-                Color.fromARGB(255, 245, 245, 245),
-              ]),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.only(
-            top: 36.0,
-            left: 24,
-            right: 24,
+      return ChangeNotifierProvider(
+        create: (context) => UsersProvider(),
+        child: Container(
+          height: 250,
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: <Color>[
+                  Color(0xffE6F8D0),
+                  Color.fromARGB(255, 245, 245, 245),
+                ]),
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Selamat Beraktifitas.',
-                style: body1,
-              ),
-              const SizedBox(
-                height: 24,
-              ),
-              Center(
-                child: Image.asset(
-                  'assets/images/profile_pemilik.png',
-                  width: 100,
+          child: Padding(
+            padding: const EdgeInsets.only(
+              top: 36.0,
+              left: 24,
+              right: 24,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Selamat Beraktifitas.',
+                  style: body1,
                 ),
-              ),
-              SizedBox(
-                height: 16,
-              ),
-              Center(
-                child: Text(
-                  'Pemilik',
-                  style: subtitle2,
+                const SizedBox(
+                  height: 24,
                 ),
-              ),
-            ],
+                Center(
+                  child: Image.asset(
+                    'assets/images/profile_pemilik.png',
+                    width: 100,
+                  ),
+                ),
+                const SizedBox(
+                  height: 16,
+                ),
+                Center(
+                  child: Text(
+                    'Pemilik',
+                    style: subtitle2,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       );
@@ -77,13 +79,13 @@ class _HomeAdminState extends State<HomeAdmin> {
         child: Container(
           decoration: BoxDecoration(
             color: A100,
-            borderRadius: BorderRadius.only(
+            borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(8), topRight: Radius.circular(8)),
             boxShadow: <BoxShadow>[
               BoxShadow(
                 color: A300,
                 blurRadius: 18,
-                offset: Offset(
+                offset: const Offset(
                   0.0,
                   -6,
                 ),
@@ -91,107 +93,105 @@ class _HomeAdminState extends State<HomeAdmin> {
             ],
           ),
           child: Expanded(
-            child: Container(
-              child: Padding(
-                padding: const EdgeInsets.only(
-                  top: 24.0,
-                  left: 24,
-                  right: 24,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Menu Utama',
-                      style: headlines6,
+            child: Padding(
+              padding: const EdgeInsets.only(
+                top: 24.0,
+                left: 24,
+                right: 24,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Menu Utama',
+                    style: headlines6,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      top: 36,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        top: 36,
-                      ),
-                      child: Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              InkWell(
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: ((context) =>
-                                            EditItemPenjahit()),
-                                      ));
-                                },
-                                child: CardMenu(
-                                  iconMenu:
-                                      'assets/images/iconmenu/icon_add_Doc.png',
-                                  descriptionMenu: 'Edit item\npenjahit',
-                                ),
-                              ),
-                              SizedBox(
-                                width: 64,
-                              ),
-                              InkWell(
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: ((context) =>
-                                              TotalGajiPenjahit())));
-                                },
-                                child: CardMenu(
-                                  iconMenu:
-                                      'assets/images/iconmenu/icon_copy_doc.png',
-                                  descriptionMenu: 'Lihat Gaji\nPenjahit',
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 36,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              InkWell(
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: ((context) => EditUser()),
-                                      ));
-                                },
-                                child: CardMenu(
-                                  iconMenu:
-                                      'assets/images/iconmenu/icon_edit.png',
-                                  descriptionMenu: 'Edit User\nKaryawan',
-                                ),
-                              ),
-                              const SizedBox(
-                                width: 64,
-                              ),
-                              InkWell(
-                                onTap: () {
-                                  Navigator.push(
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => TambahUser()),
-                                  );
-                                },
-                                child: CardMenu(
-                                  iconMenu:
-                                      'assets/images/iconmenu/icon_add_person.png',
-                                  descriptionMenu: 'Tambah User\nKaryawan',
-                                ),
+                                      builder: ((context) =>
+                                          const EditItemPenjahit()),
+                                    ));
+                              },
+                              child: CardMenu(
+                                iconMenu:
+                                    'assets/images/iconmenu/icon_add_Doc.png',
+                                descriptionMenu: 'Edit item\npenjahit',
                               ),
-                            ],
-                          ),
-                        ],
-                      ),
+                            ),
+                            const SizedBox(
+                              width: 64,
+                            ),
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: ((context) =>
+                                            const TotalGajiPenjahit())));
+                              },
+                              child: CardMenu(
+                                iconMenu:
+                                    'assets/images/iconmenu/icon_copy_doc.png',
+                                descriptionMenu: 'Lihat Gaji\nPenjahit',
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 36,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: ((context) => const EditUser()),
+                                    ));
+                              },
+                              child: CardMenu(
+                                iconMenu:
+                                    'assets/images/iconmenu/icon_edit.png',
+                                descriptionMenu: 'Edit User\nKaryawan',
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 64,
+                            ),
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const TambahUser()),
+                                );
+                              },
+                              child: CardMenu(
+                                iconMenu:
+                                    'assets/images/iconmenu/icon_add_person.png',
+                                descriptionMenu: 'Tambah User\nKaryawan',
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),
@@ -223,7 +223,7 @@ class _HomeAdminState extends State<HomeAdmin> {
               BoxShadow(
                 color: A400,
                 blurRadius: 2.0,
-                offset: Offset(
+                offset: const Offset(
                   0.0,
                   1.0,
                 ),

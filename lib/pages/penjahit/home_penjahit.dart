@@ -2,14 +2,13 @@ import 'package:faris_app/pages/penjahit/tambahitem_penjahit.dart';
 import 'package:faris_app/pages/penjahit/total_gaji.dart';
 import 'package:faris_app/pages/widgets/card_menu.dart';
 import 'package:faris_app/pages/widgets/navbarberanda.dart';
-import 'package:faris_app/pages/widgets/navbarslipgaji.dart';
 import 'package:faris_app/theme.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:custom_navigation_bar/custom_navigation_bar.dart';
+
 
 class HomePenjahit extends StatefulWidget {
+  const HomePenjahit({Key? key}) : super(key: key);
+
   @override
   State<HomePenjahit> createState() => _HomePenjahitState();
 }

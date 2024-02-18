@@ -7,6 +7,8 @@ import 'package:intl/date_symbol_data_local.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 class InputJahitan extends StatefulWidget {
+  const InputJahitan({Key? key}) : super(key: key);
+
   @override
   State<InputJahitan> createState() => _InputJahitanState();
 }
@@ -101,7 +103,7 @@ class _InputJahitanState extends State<InputJahitan> {
             BoxShadow(
               color: A400,
               blurRadius: 4.0,
-              offset: Offset(
+              offset: const Offset(
                 0.0,
                 4,
               ),
@@ -122,11 +124,11 @@ class _InputJahitanState extends State<InputJahitan> {
           },
           child: Row(
             children: [
-              SizedBox(
+              const SizedBox(
                 width: 16,
               ),
               Image.asset('assets/images/iconmenu/icon_plus.png'),
-              SizedBox(
+              const SizedBox(
                 width: 8,
               ),
               Text(

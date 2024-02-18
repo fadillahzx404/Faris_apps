@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import '../../theme.dart';
 
 class LihatTotalGaji extends StatelessWidget {
+  const LihatTotalGaji({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +25,7 @@ class LihatTotalGaji extends StatelessWidget {
                   }),
                   child: ButtonBack(TextButtonBack: 'Lihat Total Gaji')),
             ),
-            SizedBox(
+            const SizedBox(
               height: 34,
             ),
             Container(
@@ -47,7 +49,7 @@ class LihatTotalGaji extends StatelessWidget {
                             'Penjahit 1',
                             style: headlines4,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 8,
                           ),
                           Text(
@@ -59,7 +61,7 @@ class LihatTotalGaji extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Image.asset('assets/images/baner_total_gaji.png')
                   ],
                 ),
@@ -73,7 +75,7 @@ class LihatTotalGaji extends StatelessWidget {
                   0.0,
                 ),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.vertical(
+                  borderRadius: const BorderRadius.vertical(
                     top: Radius.circular(8),
                   ),
                   color: A100,
@@ -89,20 +91,20 @@ class LihatTotalGaji extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 12,
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 24),
                       child: Align(
                           alignment: Alignment.centerRight,
-                          child: RaisedButton(
+                          child: TextButton(
                             onPressed: () {},
-                            child: Text('Bagikan Gaji'),
-                            color: P100,
+                            child: const Text('Bagikan Gaji'),
+                            style: TextButton.styleFrom(backgroundColor: P100),
                           )),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Expanded(
@@ -134,7 +136,7 @@ class LihatTotalGaji extends StatelessWidget {
                 'Total',
                 style: headlines6,
               ),
-              Spacer(),
+              const Spacer(),
               Text(
                 'Rp. 200.000',
                 style: headlines6,

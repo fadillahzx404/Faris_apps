@@ -1,10 +1,7 @@
 import 'package:faris_app/pages/admin/home_admin.dart';
-import 'package:faris_app/pages/admin/lihat_total_gaji.dart';
 import 'package:faris_app/pages/admin/total_gaji_penjahit.dart';
-import 'package:faris_app/pages/penjahit/total_gaji.dart';
 import 'package:faris_app/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class NavbarEditUserAdmin extends StatelessWidget {
   @override
@@ -21,8 +18,8 @@ class NavbarEditUserAdmin extends StatelessWidget {
           Material(
             borderRadius: BorderRadius.circular(8),
             child: InkWell(
-              onTap: () {
-                Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=> TotalGajiPenjahit()), (route) => false);},
+              onTap: () => Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => TotalGajiPenjahit())),
               borderRadius: BorderRadius.circular(8),
               child: Padding(
                 padding: const EdgeInsets.only(

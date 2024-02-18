@@ -1,6 +1,6 @@
+import 'package:faris_app/pages/penjahit/profile.dart';
 import 'package:faris_app/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class NavbarBeranda extends StatelessWidget {
 
@@ -75,7 +75,12 @@ class NavbarBeranda extends StatelessWidget {
           Spacer(),
           Material(
             child: InkWell(
-              onTap: () {},
+              onTap: () => Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) =>
+                        Profile(),
+                  )),
               borderRadius: BorderRadius.circular(8),
               child: Padding(
                 padding: const EdgeInsets.only(left: 4.0, right: 4, top: 4),

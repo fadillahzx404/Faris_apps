@@ -3,9 +3,9 @@ class Users {
   final String role;
   final String image;
   final String username;
-  final int nomor;
-  final int gaji;
-  final int id;
+  final String nomor;
+  final String gaji;
+  final String id;
 
   Users({
     required this.name,
@@ -19,13 +19,13 @@ class Users {
 
   factory Users.fromJson(Map<String, dynamic> json) {
     return Users(
-      name: json['nama'],
-      role: json['role'],
-      image: json['avatar'],
-      username: json['username'],
-      nomor: json['nomor'],
-      gaji: json['gaji'],
-      id: json['id'],
+      name: json['name'] ?? '',
+      role: json['role'] ?? '',
+      image: json['avatar'] ?? '',
+      username: json['username'] ?? '',
+      nomor: json['nomor'] ?? '',
+      gaji: json['gaji'] ?? '',
+      id: json['id'] ?? '',
     );
   }
 }

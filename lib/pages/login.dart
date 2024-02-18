@@ -1,8 +1,12 @@
+import 'package:faris_app/pages/admin/home_admin.dart';
+import 'package:faris_app/pages/penjahit/home_penjahit.dart';
 import 'package:faris_app/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 
 class Login extends StatelessWidget {
+  const Login({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +26,7 @@ class Login extends StatelessWidget {
                     'assets/images/Logo_Faris.png',
                     height: 40,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 12,
                   ),
                   Text(
@@ -31,14 +35,14 @@ class Login extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               Text(
                 'Halo, Silakan Login untuk\nmasuk ke akun anda.',
                 style: headlines6,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 48,
               ),
               Column(
@@ -48,7 +52,7 @@ class Login extends StatelessWidget {
                     'Username',
                     style: subtitle2,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 4,
                   ),
                   TextFormField(
@@ -64,14 +68,14 @@ class Login extends StatelessWidget {
                           vertical: 8.0, horizontal: 8.0),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 12,
                   ),
                   Text(
                     'Password',
                     style: subtitle2,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 4,
                   ),
                   TextFormField(
@@ -94,13 +98,13 @@ class Login extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 48),
+              const SizedBox(height: 48),
               Center(
                 child: Container(
                   height: 45,
                   width: 144,
                   decoration: BoxDecoration(
-                    gradient: LinearGradient(
+                    gradient: const LinearGradient(
                         begin: Alignment.bottomLeft,
                         end: Alignment.topRight,
                         colors: <Color>[
@@ -112,7 +116,7 @@ class Login extends StatelessWidget {
                       BoxShadow(
                         color: A400,
                         blurRadius: 4.0,
-                        offset: Offset(
+                        offset: const Offset(
                           0.0,
                           4,
                         ),
@@ -120,9 +124,91 @@ class Login extends StatelessWidget {
                     ],
                   ),
                   child: TextButton(
-                    onPressed: () {
-                      
-                    },
+                    onPressed: () => showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        content: Container(
+                            width: MediaQuery.of(context).size.width,
+                            height: 230,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                    top: 12,
+                                  ),
+                                  child: Text(
+                                    'Silakan Pilih Menu Login Ke Roles Apa ?',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                    top: 18,
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      ElevatedButton(
+                                        onPressed: () =>
+                                            Navigator.pushReplacement(
+                                                context,
+                                                PageRouteBuilder(
+                                                  pageBuilder: (context,
+                                                          animation1,
+                                                          animation2) =>
+                                                      HomeAdmin(),
+                                                  transitionDuration:
+                                                      Duration(seconds: 1),
+                                                  reverseTransitionDuration:
+                                                      Duration(seconds: 1),
+                                                )),
+                                        child: Text(
+                                          'Login Admin',
+                                          style: TextStyle(
+                                            fontSize: 20,
+                                          ),
+                                        ),
+                                      ),
+                                      
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                          vertical: 12,
+                                        ),
+                                        child: Text('Or'),
+                                      ),
+                                      ElevatedButton(
+                                        onPressed: () =>
+                                            Navigator.pushReplacement(
+                                                context,
+                                                PageRouteBuilder(
+                                                  pageBuilder: (context,
+                                                          animation1,
+                                                          animation2) =>
+                                                      HomePenjahit(),
+                                                  transitionDuration:
+                                                      Duration(seconds: 1),
+                                                  reverseTransitionDuration:
+                                                      Duration(seconds: 1),
+                                                )),
+                                        child: Text(
+                                          'Login Penjahit',
+                                          style: TextStyle(
+                                            fontSize: 20,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            )),
+                      ),
+                    ),
                     child: Text(
                       'Login',
                       style: button,
@@ -130,7 +216,7 @@ class Login extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 48,
               ),
               Center(
@@ -140,7 +226,7 @@ class Login extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               Center(
@@ -161,7 +247,7 @@ class Login extends StatelessWidget {
                           Image.asset(
                             'assets/images/logo_google.png',
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 8,
                           ),
                           Text(
