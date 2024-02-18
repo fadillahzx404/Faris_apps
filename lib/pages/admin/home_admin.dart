@@ -2,6 +2,7 @@ import 'package:faris_app/pages/admin/edit_item_penjahit.dart';
 import 'package:faris_app/pages/admin/edit_user.dart';
 import 'package:faris_app/pages/admin/tambah_user.dart';
 import 'package:faris_app/pages/admin/total_gaji_penjahit.dart';
+import 'package:faris_app/pages/login.dart';
 import 'package:faris_app/pages/widgets/card_menu.dart';
 import 'package:faris_app/pages/widgets/navabar_beranda_admin.dart';
 import 'package:faris_app/providers/users_providers.dart';
@@ -45,9 +46,46 @@ class _HomeAdminState extends State<HomeAdmin> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
                   'Selamat Beraktifitas.',
                   style: body1,
+                    ),
+                    Container(
+                      height: 45,
+                      width: 100,
+                      decoration: BoxDecoration(
+                        gradient: const LinearGradient(
+                            begin: Alignment.bottomLeft,
+                            end: Alignment.topRight,
+                            colors: <Color>[
+                              Color.fromARGB(255, 245, 245, 245),
+                              Color(0xffC8F1A2),
+                            ]),
+                        borderRadius: BorderRadius.circular(8),
+                        boxShadow: <BoxShadow>[
+                          BoxShadow(
+                            color: A400,
+                            blurRadius: 4.0,
+                            offset: const Offset(
+                              0.0,
+                              4,
+                            ),
+                          ),
+                        ],
+                      ),
+                      child: TextButton(
+                        onPressed: () => Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: ((context) => const Login()),
+                            )),
+                        child: const Text('Log Out'),
+                      ),
+                    ),
+                  ],
                 ),
                 const SizedBox(
                   height: 24,
